@@ -1,4 +1,5 @@
 using System;
+using Bible.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -16,8 +17,13 @@ namespace Bible.API.Controllers
         }
 
         [HttpGet]
-        public String Get(){
-            return "This is not a bible verse";
+        public BibleVerse Get(){
+            BibleVerse bibleVerse = new BibleVerse();
+            bibleVerse.Book = "John";
+            bibleVerse.Chapter = 3;
+            bibleVerse.Verse = 16;
+            bibleVerse.Text = "For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish, but have everlasting life";
+            return bibleVerse;
         }
 
     }
