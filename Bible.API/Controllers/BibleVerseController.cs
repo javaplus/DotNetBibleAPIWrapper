@@ -1,5 +1,6 @@
 using System;
 using Bible.API.Models;
+using Bible.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,18 +12,18 @@ namespace Bible.API.Controllers
     {
         private readonly ILogger<BibleVerseController> _logger;
 
+        private BibleAPIService _service;
+
         public BibleVerseController(ILogger<BibleVerseController> logger)
         {
             _logger = logger;
+            _service = new BibleAPIService();
         }
 
         [HttpGet]
         public BibleVerse Get(){
-            BibleVerse bibleVerse = new BibleVerse();
-            bibleVerse.Book = "John";
-            bibleVerse.Chapter = 3;
-            bibleVerse.Verse = 16;
-            bibleVerse.Text = "For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish, but have everlasting life";
+            BibleVerse bibleVerse = _service.getJohn316();
+            
             return bibleVerse;
         }
 

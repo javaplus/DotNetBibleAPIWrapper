@@ -3,8 +3,8 @@ namespace Bible.API.Models
     public class BibleVerse
     {
         string book;
-        int chapter;
-        int verse;
+        string chapter;
+        string verse;
         string text;
 
         public string Book
@@ -12,12 +12,12 @@ namespace Bible.API.Models
             get { return book; }
             set { book = value; }
         }
-        public int Chapter
+        public string Chapter
         {
             get { return chapter; }
             set { chapter = value; }
         }
-        public int Verse
+        public string Verse
         {
             get { return verse; }
             set { verse = value; }
